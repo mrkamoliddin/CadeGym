@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Table V01</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="/roadToUsersTable/images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/roadToUsersTable/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/roadToUsersTable/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/roadToUsersTable/vendor/animate/animate.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/roadToUsersTable/vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/roadToUsersTable/vendor/perfect-scrollbar/perfect-scrollbar.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/roadToUsersTable/css/util.css">
+	<link rel="stylesheet" type="text/css" href="/roadToUsersTable/css/main.css">
+<!--===============================================================================================-->
+</head>
+<body>
+	
+	<div class="limiter">
+		<div class="container-table100">
+			<div class="wrap-table100">
+				<div class="table100">
+					<table>
+						<thead>
+							<tr class="table100-head">
+								<th class="column1">User Id</th>
+								<th class="column2">User Full Name</th>
+								<th class="column3">User Name</th>
+								<th class="column4">Email</th>
+								<th class="column5">Password</th>
+							</tr>
+						</thead>
+						<tbody>
+								<tr class="table100-head" th:each="counter : ${users}">
+									<td  class="column1" th:text="${counter.userId}"></td>
+									<td  class="column2" th:text="${counter.userFullName}"></td>
+									<td class="column3" th:text="${counter.userName}"></td>
+									<td class="column4" th:text="${counter.userEmail}"></td>
+									<td class="column5" th:text="${counter.userPassword}"></td>
+								</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	
+
+<!--===============================================================================================-->	
+	<script src="/roadToUsersTable/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="/roadToUsersTable/vendor/bootstrap/js/popper.js"></script>
+	<script src="/roadToUsersTable/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="/roadToUsersTable/vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="/roadToUsersTable/js/main.js"></script>
+
+</body>
+</html>
