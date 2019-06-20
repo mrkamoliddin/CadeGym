@@ -1,4 +1,4 @@
-package payme.makingPayments;
+package payme.making_payments;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

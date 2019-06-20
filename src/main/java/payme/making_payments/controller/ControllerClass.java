@@ -1,10 +1,13 @@
-package payme.makingPayments;
+package payme.making_payments.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import payme.making_payments.Repo;
+import payme.making_payments.UserData;
+import payme.making_payments.UserData2;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -24,10 +27,11 @@ public class ControllerClass {
         return this;
     }
 
+
     @GetMapping(value = "/")
     public String indexPage(){
         repo.getDataFromTable();
-        repo.insertIntoTable(new UserData2().setEmail("123").setName("123").setPassword("123").setUsername("123"));
+        repo.insertIntoTable(new UserData2().setEmail("321").setName("321").setPassword("321").setUsername("321"));
         System.out.println(repo.getUserData());
         return "login";
     }

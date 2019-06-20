@@ -1,9 +1,7 @@
-package payme.makingPayments;
+package payme.making_payments;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
@@ -19,17 +17,20 @@ public class Repo {
     private JdbcTemplate jdbcTemplate;
 
     @Autowired
-    public Repo setJdbcTemplate(DataSource postgres, JdbcTemplate jdbcTemplate) {
+    public Repo setJdbcTemplate(DataSource postgres, JdbcTemplate jdbcTemplate){
         this.jdbcTemplate = new JdbcTemplate(postgres);
         return this;
     }
 
     public void getDataFromTable(){
-        String sql = "select * from cities";
+        String sql = "select * from user_data";
         jdbcTemplate.query(sql, new RowMapper<Object>() {
 
             @Override
             public Object mapRow(ResultSet resultSet, int i)throws SQLException{
+                System.out.println(resultSet.getString("name"));
+                System.out.println(resultSet.getString("username"));
+                System.out.println(resultSet.getString("password"));
                 return null;
             }
         });

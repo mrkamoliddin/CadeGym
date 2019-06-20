@@ -1,4 +1,4 @@
-package payme.makingPayments;
+package payme.making_payments;
 
 public class UserData {
 

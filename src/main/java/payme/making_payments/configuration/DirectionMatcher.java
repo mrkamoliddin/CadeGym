@@ -1,4 +1,4 @@
-package payme.makingPayments;
+package payme.making_payments.configuration;
 
 
 import org.springframework.context.annotation.Configuration;
