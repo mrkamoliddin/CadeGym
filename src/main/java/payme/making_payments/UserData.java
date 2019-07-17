@@ -57,8 +57,5 @@ public class UserData {
         return this;
     }
 
-    class Cat(int a){
-        this.a = a;
-    }
 }
 
