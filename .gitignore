@@ -8,5 +8,5 @@ HELP.md
 *.iml
 *.ipr
 *.mvn
-
+*.class
 
