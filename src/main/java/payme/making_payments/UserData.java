@@ -1,5 +1,8 @@
 package payme.making_payments;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
 public class UserData {
 
     private String userFullName;
@@ -56,6 +59,23 @@ public class UserData {
         this.userId = userId;
         return this;
     }
-
+    int[] larray = new int[20];
+    int[] s1array = new int[10];
+    int[] s2array = new int[10];
+    BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        for(int i =0;i<20;i++){
+        larray[i]=Integer.parseInt(reader.readLine());
+    }
+        for(int i =0;i<10;i++){
+        s1array[i] = larray[i];
+    }
+        for(int i =10;i<20;i++){
+        int j =0;
+        s2array[j] = larray[i];
+        j++;
+    }
+        for(int i =0;i<10;i++){
+        System.out.println(s2array[i]);
+    }
 }
 
