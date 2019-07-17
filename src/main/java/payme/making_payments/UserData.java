@@ -4,6 +4,7 @@ public class UserData {
 
     private String userFullName;
     private String userPassword;
+    private String userAddress;
     private int userId;
     private String userEmail;
 
@@ -17,7 +18,7 @@ public class UserData {
     }
 
     private String userName;
-
+    private String getUserAddress;
 
 
     public String getUserEmail() {
