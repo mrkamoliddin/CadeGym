@@ -56,5 +56,9 @@ public class UserData {
         this.userId = userId;
         return this;
     }
+
+    class Cat(int a){
+        this.a = a;
+    }
 }
 
