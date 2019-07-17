@@ -1,6 +1,7 @@
 package payme.making_payments.dao.employees;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.quartz.QuartzProperties;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.ResultSetExtractor;
@@ -57,40 +58,35 @@ public class EmployeeDaoImpl implements EmployeeDao {
         });
     }
 
-    @Override
+    @Override /*This method returns an object of Student class via id*/
     public Employee getById(Integer id) {
-        String sql = "select * from employees where id = ?";
         Employee employee = new Employee();
+        String sql = "select * from students where id = ?";
         jdbcTemplate.query(sql, preparedStatement -> {
-                    preparedStatement.setObject(1, id);
-                }, resultSet -> {
-                    if (resultSet.next())
-                        employee.setName(resultSet.getString("name"))
-                                .setGender(resultSet.getString("gender"))
-                                .setMarital_status(resultSet.getString("marital_status"))
-                                .setRecommendation(resultSet.getString("recommendation"))
-                                .setId(id);
-                    return null;
-                }
-        );
+            preparedStatement.setObject(1, id);
+        }, resultSet -> {
+            if (resultSet.next())
+                employee.setName(resultSet.getString("name"))
+                        .setGender(resultSet.getString("gender"))
+                        .setRecommendation(resultSet.getString("recommendation"))
+                        .setMarital_status(resultSet.getString("marital_status"));
+            return null;
+        });
         return employee;
     }
 
     @Override
     public List<Employee> getList() {
         String sql = "select * from employees";
-        List<Employee> employeeList = new ArrayList<>();
-        jdbcTemplate.query(sql, new RowMapper<Object>() {
-            @Override
-            public Object mapRow(ResultSet resultSet, int i) throws SQLException {
-                employeeList.add(new Employee()
-                        .setGender(resultSet.getString("gender"))
-                        .setId(resultSet.getInt("id"))
-                        .setMarital_status(resultSet.getString("marital_status"))
-                        .setRecommendation(resultSet.getString("recommendation"))
-                        .setName(resultSet.getString("name")));
-                return null;
-            }
+        List<Employee> employeeList = new ArrayList<>();    /*Opening a new list with Employee parameter*/
+        jdbcTemplate.query(sql, (resultSet, i) -> {
+            employeeList.add(new Employee()
+                    .setGender(resultSet.getString("gender"))
+                    .setId(resultSet.getInt("id"))
+                    .setMarital_status(resultSet.getString("marital_status"))
+                    .setRecommendation(resultSet.getString("recommendation"))
+                    .setName(resultSet.getString("name")));
+            return null;
         });
         return employeeList;
     }

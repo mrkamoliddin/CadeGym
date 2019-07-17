@@ -12,7 +12,9 @@ import payme.making_payments.service.employees.EmployeeService;
 
 import javax.jws.WebParam;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Scanner;
 
 @Controller
 public class EmployeeController {
@@ -45,7 +47,7 @@ public class EmployeeController {
     }
 
     @GetMapping("/employees/edit/{id}")
-    public String editEmployee(@PathVariable("id") Integer id, Model model ){
+    public String editEmployee(@PathVariable("id") Integer id, Model model){
         model.addAttribute("employee", employeeService.getById(id));
         return "edit_employee";
     }
@@ -53,9 +55,7 @@ public class EmployeeController {
     @PostMapping("/edit")
     public String submitEdition( Model model, Employee employee){
         employeeService.update(employee);
-        System.out.println(employee.getId());
         model.addAttribute("empList", employeeService.getList());
-        System.out.println(employee.toString());
         return "employeePage";
     }
 
@@ -65,4 +65,19 @@ public class EmployeeController {
         model.addAttribute("empList", employeeService.getList());
         return "employeePage";
     }
-}
+
+    public static void main(String[] args) {
+        int[] array = {1,23,12,234,54,12,123,-123,1};
+        for (int i = 0; i < array.length - 1; i++){
+            for (int k = 0; k < array.length - 1 - i; k++){
+                if (array[k] > array[k+1]){
+                    int temp = array[k];
+                    array[k] = array[k+1];
+                    array[k+1] = temp;
+                }
+            }
+        }
+        System.out.println(Arrays.toString(array));
+        System.out.println(Arrays.binarySearch(array,-123));;
+        }
+    }
