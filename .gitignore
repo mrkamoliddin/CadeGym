@@ -9,4 +9,5 @@ HELP.md
 *.ipr
 *.mvn
 *.class
+*.cmd
 
