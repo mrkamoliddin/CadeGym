@@ -76,6 +76,8 @@ public class UserData {
     }
         for(int i =0;i<10;i++){
         System.out.println(s2array[i]);
+        System.out.println(i);
     }
+
 }
 
